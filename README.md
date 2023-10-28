@@ -1,16 +1,9 @@
 # ff_project
 
-A new Flutter project.
+## UI Screenshot
 
-## Getting Started
+![alt text](readme_images/screenshot.png)
 
-This project is a starting point for a Flutter application.
+## Architecture
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![alt text](readme_images/architecture.png)
