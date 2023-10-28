@@ -4,7 +4,7 @@ import 'package:ff_project/features/account_details/account_details_initial_para
 import 'package:ff_project/features/create_account/create_account_initial_params.dart';
 import 'package:ff_project/features/create_account/create_account_navigator.dart';
 import 'package:ff_project/features/create_account/create_account_presentation_model.dart';
-import 'package:ff_project/features/create_account/domain/dependent.dart';
+import 'package:ff_project/core/domain/models/dependent.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CreateAccountPresenter extends Cubit<CreateAccountPresentationModel> {

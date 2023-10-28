@@ -1,5 +1,3 @@
-
-
 import 'package:ff_project/navigation/app_navigator.dart';
 
 mixin CloseRoute {

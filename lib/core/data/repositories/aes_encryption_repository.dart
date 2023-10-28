@@ -7,6 +7,8 @@ import 'package:ff_project/core/domain/repositories/encryption_repository.dart';
 import 'package:fpdart/fpdart.dart';
 
 class AesEncryptionRepository implements EncryptionRepository {
+  /// Should be in an .env file or be picked up from Git secrets but didn't do it because it would have been an added
+  /// step for the reviewers to make the code run
   final secretKey = 'FF256FF256K';
   final salt = 'fa9b8ba73fe30d8dfcf4c59532148522';
   final encryptionIv = 'a715fed0af06cce82dcc1e69fc832cfe';

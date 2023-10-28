@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:ff_project/features/create_account/create_account_initial_params.dart';
-import 'package:ff_project/features/create_account/domain/dependent.dart';
+import 'package:ff_project/core/domain/models/dependent.dart';
 
 class CreateAccountPresentationModel {
   final bool isLoading;

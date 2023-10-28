@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:equatable/equatable.dart';
-import 'package:ff_project/features/create_account/domain/dependent.dart';
+import 'package:ff_project/core/domain/models/dependent.dart';
 
 class CreateAccount extends Equatable {
   final String firstName;

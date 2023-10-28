@@ -4,7 +4,7 @@ import 'package:ff_project/core/data/repositories/aes_encryption_repository.dart
 import 'package:ff_project/core/data/repositories/rest_api_account_repository.dart';
 import 'package:ff_project/core/data/repositories/rest_network_repository.dart';
 import 'package:ff_project/core/domain/models/create_account.dart';
-import 'package:ff_project/features/create_account/domain/dependent.dart';
+import 'package:ff_project/core/domain/models/dependent.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
