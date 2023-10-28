@@ -27,7 +27,7 @@ class CreateAccountPresenter extends Cubit<CreateAccountPresentationModel> {
 
   onChangeDependent(String value, Dependent dependent) => emit(state.byUpdatingDependent(value, dependent));
 
-  void onTapAddPicture() async {
+  Future<void> onTapAddPicture() async {
     emit(state.copyWith(isPhotoLoading: true));
     final photoMemoryString = await _navigator.openPhotoPicker();
     if (photoMemoryString != null) {
@@ -36,9 +36,9 @@ class CreateAccountPresenter extends Cubit<CreateAccountPresentationModel> {
     emit(state.copyWith(isPhotoLoading: false));
   }
 
-  void onTapSubmit() {
+  Future<void> onTapSubmit() async {
     emit(state.copyWith(isLoading: true));
-    _createAccountUseCase
+    await _createAccountUseCase
         .execute(
           CreateAccount(
             firstName: state.firstName,

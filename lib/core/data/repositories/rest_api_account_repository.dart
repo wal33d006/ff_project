@@ -23,7 +23,7 @@ class RestApiAccountRepository implements AccountRepository {
 
   @override
   Future<Either<CreateAccountFailure, Account>> createAccount(CreateAccount account) =>
-      _encryptionRepository.encrypt(AccountRequestJson.fromDomain(account).toJson().toString()).then(
+      _encryptionRepository.encrypt(jsonEncode(AccountRequestJson.fromDomain(account).toJson())).then(
             (value) => value.fold(
               (l) => left(CreateAccountFailure(error: l.error)),
               (r) => _networkRepository
