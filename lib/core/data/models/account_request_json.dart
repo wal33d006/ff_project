@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:ff_project/core/domain/models/create_account.dart';
 
 class AccountRequestJson {
@@ -18,8 +20,8 @@ class AccountRequestJson {
   factory AccountRequestJson.fromDomain(CreateAccount account) => AccountRequestJson(
         firstName: account.firstName,
         lastName: account.lastName,
-        photo: account.photo,
-        dependents: account.dependents,
+        photo: base64Encode(account.photo),
+        dependents: account.dependents.map((e) => e.name).toList(),
       );
 
   Map<String, dynamic> toJson() {

@@ -4,6 +4,11 @@ import 'package:ff_project/core/data/repositories/rest_network_repository.dart';
 import 'package:ff_project/core/domain/repositories/account_repository.dart';
 import 'package:ff_project/core/domain/repositories/encryption_repository.dart';
 import 'package:ff_project/core/domain/use_cases/create_account_use_case.dart';
+import 'package:ff_project/features/account_details/account_details_initial_params.dart';
+import 'package:ff_project/features/account_details/account_details_navigator.dart';
+import 'package:ff_project/features/account_details/account_details_page.dart';
+import 'package:ff_project/features/account_details/account_details_presentation_model.dart';
+import 'package:ff_project/features/account_details/account_details_presenter.dart';
 import 'package:ff_project/features/create_account/create_account_initial_params.dart';
 import 'package:ff_project/features/create_account/create_account_navigator.dart';
 import 'package:ff_project/features/create_account/create_account_page.dart';
@@ -50,10 +55,28 @@ void _registerDependencies() {
       (initialParams, _) => CreateAccountPresenter(
         getIt(param1: initialParams),
         getIt(),
+        getIt(),
       ),
     )
     ..registerFactoryParam<CreateAccountPage, CreateAccountInitialParams, dynamic>(
       (initialParams, _) => CreateAccountPage(
+        presenter: getIt(param1: initialParams),
+      ),
+    )
+    ..registerFactory<AccountDetailsNavigator>(
+      () => AccountDetailsNavigator(getIt()),
+    )
+    ..registerFactoryParam<AccountDetailsPresentationModel, AccountDetailsInitialParams, dynamic>(
+      (params, _) => AccountDetailsPresentationModel.initial(params),
+    )
+    ..registerFactoryParam<AccountDetailsPresenter, AccountDetailsInitialParams, dynamic>(
+      (initialParams, _) => AccountDetailsPresenter(
+        getIt(param1: initialParams),
+        getIt(),
+      ),
+    )
+    ..registerFactoryParam<AccountDetailsPage, AccountDetailsInitialParams, dynamic>(
+      (initialParams, _) => AccountDetailsPage(
         presenter: getIt(param1: initialParams),
       ),
     );
@@ -65,6 +88,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: AppNavigator.navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(

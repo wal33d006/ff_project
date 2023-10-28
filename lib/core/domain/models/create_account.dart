@@ -1,10 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:equatable/equatable.dart';
+import 'package:ff_project/features/create_account/domain/dependent.dart';
 
 class CreateAccount extends Equatable {
   final String firstName;
   final String lastName;
-  final String photo;
-  final List<String> dependents;
+  final Uint8List photo;
+  final List<Dependent> dependents;
 
   const CreateAccount({
     required this.firstName,
@@ -13,18 +16,18 @@ class CreateAccount extends Equatable {
     required this.dependents,
   });
 
-  factory CreateAccount.empty() => const CreateAccount(
+  factory CreateAccount.empty() => CreateAccount(
         firstName: '',
         lastName: '',
-        photo: '',
-        dependents: [],
+        photo: Uint8List(0),
+        dependents: const [],
       );
 
   CreateAccount copyWith({
     String? firstName,
     String? lastName,
-    String? photo,
-    List<String>? dependents,
+    Uint8List? photo,
+    List<Dependent>? dependents,
   }) =>
       CreateAccount(
         firstName: firstName ?? this.firstName,
